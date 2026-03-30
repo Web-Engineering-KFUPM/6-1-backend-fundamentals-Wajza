@@ -11,8 +11,10 @@ import cors from "cors";
 app.use(cors());
 
 
-// TODO 5: Create the home route "/"
-
+// Done 5: Create the home route "/"
+app.get("/", (req, res) => {
+  res.send("Welcome!");
+});
 
 
 // TODO 6: Create the "/about" route
