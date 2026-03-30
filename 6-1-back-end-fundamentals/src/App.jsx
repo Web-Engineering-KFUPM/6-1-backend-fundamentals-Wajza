@@ -215,7 +215,7 @@ Syntax hint:
    });
 
 -------------------------------------------------------------------
-TODO 8:
+Done 8:
 request/response between React and server
 -------------------------------------------------------------------
 
@@ -238,9 +238,10 @@ Syntax hint:
      .then((data) => {
        // use the returned data here
      });
+     
 
 -------------------------------------------------------------------
-TODO 9:
+Done 9:
 Make React use the student data
 -------------------------------------------------------------------
 
@@ -356,19 +357,28 @@ import { useEffect, useState } from 'react';
 import './index.css';
 
 export default function App() {
-  // TODO 9:
+  // Done 9:
   // Create state to store student data
   // Syntax hint:
-  // const [student, setStudent] = useState(____);
+  const [student, setStudent] = useState(null);
+  setStudent(data); 
+  {student && (
+     <div>
+       <h3>{student.name}</h3>
+       <p>{student.major}</p>
+     </div>
+   )}
+   
 
-  // TODO 8:
+
+  // Done 8:
   // Request student data from the server when the page loads
   // Syntax hint:
-  // fetch('http://localhost:3000/student')
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     setStudent(data);
-  //   });
+  fetch('http://localhost:3000/student')
+     .then((res) => res.json())
+     .then((data) => {
+       setStudent(data);
+     });
 
   return (
     <main className="app-shell">
